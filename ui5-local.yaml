@@ -1,0 +1,31 @@
+specVersion: "2.0"
+metadata:
+  name: zu_ctrl_supwht
+type: application
+framework:
+  name: SAPUI5
+  version: 1.87.1
+  libraries:
+    - name: sap.ui.core
+    - name: sap.ui.generic.app
+    - name: sap.suite.ui.generic.template
+    - name: sap.m
+    - name: sap.ushell
+    - name: sap.f
+    - name: sap.ui.comp
+    - name: sap.ui.table
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        backend:
+          - path: /sap
+            url: http://fiori.smart-dev-proj-drfp.lh-drfp.gcp.adeo.com:443
+            destination: DF3-020
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp

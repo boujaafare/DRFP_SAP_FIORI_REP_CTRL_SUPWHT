@@ -1,0 +1,26 @@
+specVersion: "1.0"
+metadata:
+  name: zu_ctrl_supwht
+type: application
+ui5Theme: sap_fiori_3
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: http://fiori.smart-dev-proj-drfp.lh-drfp.gcp.adeo.com:443
+            destination: DF3-020
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: ""
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp

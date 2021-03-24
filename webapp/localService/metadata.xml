@@ -1,0 +1,507 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4HANA')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='S4HANA')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="https://sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='S4HANA')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZC_SUPPLIERWITHHOLDINGTAX_CDS" xml:lang="fr" sap:schema-version="1">
+			<EntityType Name="I_AddressType" sap:label="Adresse" sap:content-version="1">
+				<Key><PropertyRef Name="AddressID"/></Key><Property Name="AddressID" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Numéro d'adresse"/><Property Name="CareOfName" Type="Edm.String" MaxLength="40" sap:label="Chez"/><Property Name="AdditionalStreetSuffixName" Type="Edm.String" MaxLength="40" sap:label="Rue 5"/><Property Name="CorrespondenceLanguage" Type="Edm.String" MaxLength="2" sap:label="Code langue"/><Property Name="PrfrdCommMediumType" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Type communication"
+					sap:quickinfo="Type de communication (clé) (gestion centrale des adresses)"/><Property Name="POBox" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Boîte postale"/><Property Name="POBoxIsWithoutNumber" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="BP sans numéro"
+					sap:quickinfo="Code : indication de boîte postale sans numéro"/><Property Name="POBoxPostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code de la B.P."
+					sap:quickinfo="Code postal de la boîte postale"/><Property Name="POBoxLobbyName" Type="Edm.String" MaxLength="40" sap:label="Station postale" sap:quickinfo="Station postale (PO Box Lobby)"/><Property Name="POBoxDeviatingCityName" Type="Edm.String" MaxLength="40" sap:label="Lieu de la B.P."
+					sap:quickinfo="Lieu de la boîte postale"/><Property Name="POBoxDeviatingRegion" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Région boîte postale"
+					sap:quickinfo="Région de la boîte postale (état, land, province,...)"/><Property Name="POBoxDeviatingCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Pays boîte postale"
+					sap:quickinfo="Pays de la boîte postale"/><Property Name="DeliveryServiceTypeCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type serv.distr."
+					sap:quickinfo="Type du service de distribution"/><Property Name="DeliveryServiceNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Nº service distrib."
+					sap:quickinfo="Numéro du service de distribution"/><Property Name="AddressTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Fuseau horaire"
+					sap:quickinfo="Fuseau horaire de l'adresse"/><Property Name="FullName" Type="Edm.String" MaxLength="80" sap:label="Nom complet"
+					sap:quickinfo="Nom complet partie (partenaire, entité org., adresse doc.)"/><Property Name="CityName" Type="Edm.String" MaxLength="40" sap:label="Localité"/><Property Name="District" Type="Edm.String" MaxLength="40" sap:label="Arrondissement"/><Property Name="CityCode" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nº localité"
+					sap:quickinfo="Codage ville pour fichier des villes et des rues"/><Property Name="HomeCityName" Type="Edm.String" MaxLength="40" sap:label="Autre domicile"
+					sap:quickinfo="Domicile (autre que la localité postale)"/><Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code postal"
+					sap:quickinfo="Code postal de la localité"/><Property Name="CompanyPostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code postal entrepr."
+					sap:quickinfo="Code postal de l'entreprise (clients importants)"/><Property Name="StreetName" Type="Edm.String" MaxLength="60" sap:label="Rue"/><Property Name="StreetPrefixName" Type="Edm.String" MaxLength="40" sap:label="Rue 2"/><Property Name="AdditionalStreetPrefixName" Type="Edm.String" MaxLength="40" sap:label="Rue 3"/><Property Name="StreetSuffixName" Type="Edm.String" MaxLength="40" sap:label="Rue 4"/><Property Name="HouseNumber" Type="Edm.String" MaxLength="10" sap:label="Nº de rue"/><Property Name="HouseNumberSupplementText" Type="Edm.String" MaxLength="10" sap:label="Complément" sap:quickinfo="Complément de numéro"/><Property Name="Building" Type="Edm.String" MaxLength="20" sap:label="Sigle bâtiment" sap:quickinfo="Bâtiment (numéro ou code)"/><Property Name="Floor" Type="Edm.String" MaxLength="10" sap:label="Etage" sap:quickinfo="Etage de l'immeuble"/><Property Name="RoomNumber" Type="Edm.String" MaxLength="10" sap:label="Numéro de salle"
+					sap:quickinfo="Numéro d'un logement, d'un appartement, ou d'une salle"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de pays"/><Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Région"
+					sap:quickinfo="Région (Etat, land, province, comté, etc.)"/><Property Name="County" Type="Edm.String" MaxLength="40" sap:label="District" sap:quickinfo="District (US : comté)"/><Property Name="CountyCode" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Code du comté"
+					sap:quickinfo="Code du comté pour comté"/><Property Name="FormOfAddress" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Titre de civilité"
+					sap:quickinfo="Clé de qualité"/><Property Name="BusinessPartnerName1" Type="Edm.String" MaxLength="40" sap:label="Nom" sap:quickinfo="Nom 1"/><Property Name="BusinessPartnerName2" Type="Edm.String" MaxLength="40" sap:label="Nom 2"/><Property Name="Nation" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Version d'adresse"
+					sap:quickinfo="Code de version pour adresses internationales"/><Property Name="PhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Téléphone"
+					sap:quickinfo="1er n° téléphone : indicatif + nº"/><Property Name="FaxNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Télécopie"
+					sap:quickinfo="1er n° télécopie : indicatif + nº"/><Property Name="SearchTerm1" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Critère recherche 1"
+					sap:quickinfo="Critère de recherche 1"/><Property Name="SearchTerm2" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Critère recherche 2"
+					sap:quickinfo="Critère de recherche 2"/><Property Name="StreetSearch" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Rue"
+					sap:quickinfo="Nom de rue en majuscules pour l'aide à la recherche"/><Property Name="CitySearch" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Localité"
+					sap:quickinfo="Nom de la localité en majuscules pour l´aide à la recherche"/><Property Name="BusinessPartnerName3" Type="Edm.String" MaxLength="40" sap:label="Nom 3"/><Property Name="BusinessPartnerName4" Type="Edm.String" MaxLength="40" sap:label="Nom 4"/><Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Juridiction fiscale"/><Property Name="TransportZone" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Zone de transport"
+					sap:quickinfo="Zone transport dans / vers laquelle s'effectue la livraison"/><Property Name="Person" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Nº de personne"/></EntityType>
+			<EntityType Name="I_CompanyCodeType" sap:label="Société" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName"
+					sap:label="Société"/><Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Nom de la société"
+					sap:quickinfo="Code société ou nom de la société"/><Property Name="CityName" Type="Edm.String" MaxLength="25" sap:label="Localité"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="to_Country/Country_Text"
+					sap:label="Clé de pays" sap:value-list="standard"/><Property Name="Currency" Type="Edm.String" MaxLength="5" sap:text="to_Currency/Currency_Text" sap:label="Devise"
+					sap:quickinfo="Clé de devise" sap:value-list="standard" sap:semantics="currency-code"/><Property Name="Language" Type="Edm.String" MaxLength="2" sap:text="to_Language/Language_Text" sap:label="Code langue"
+					sap:value-list="standard"/><Property Name="ChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plan comptable"/><Property Name="FiscalYearVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="to_FiscalYearVariant/FiscalYearVariant_Text" sap:label="Version d'exercice" sap:value-list="standard"/><Property Name="Company" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Société S/L"/><Property Name="CreditControlArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="CreditControlArea_Text"
+					sap:label="Dom.contrôle crédit" sap:quickinfo="Domaine de contrôle des crédits" sap:value-list="standard"/><Property Name="CreditControlArea_Text" Type="Edm.String" MaxLength="35" sap:label="Désignation"
+					sap:quickinfo="Désignation du domaine de contrôle des crédits" sap:creatable="false" sap:updatable="false"/><Property Name="CountryChartOfAccounts" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Plan compt. national"
+					sap:quickinfo="Plan comptable selon la législation"/><Property Name="FinancialManagementArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Périmètre financier"/><Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adresse" sap:value-list="standard"/><Property Name="TaxableEntity" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Périmètre TVA sur CA"/><Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Nº ident. TVA sur CA"
+					sap:quickinfo="Numéro d'identification de la TVA sur le chiffre d'affaires"/><Property Name="ExtendedWhldgTaxIsActive" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Décl. honor. étendue"
+					sap:quickinfo="Code : traitement étendu de la déclaration d'honor.actif"/><Property Name="ControllingArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ControllingArea_Text"
+					sap:label="Périmètre analytique" sap:value-list="standard"/><Property Name="ControllingArea_Text" Type="Edm.String" MaxLength="25" sap:label="Nom du périmètre analytique" sap:creatable="false"
+					sap:updatable="false"/><Property Name="FieldStatusVariant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="to_FieldStatusVariant/FieldStatusVariant_Text" sap:label="Var. statut zone" sap:quickinfo="Variante de statut de zone"
+					sap:value-list="standard"/><Property Name="NonTaxableTransactionTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code TVA coll."
+					sap:quickinfo="Code TVA opération non imposable TVA collectée"/><Property Name="DocDateIsUsedForTaxDetn" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Déterm. taxe av. date pce"
+					sap:quickinfo="Code : date pièce comme base de la détermination de la taxe"/><Property Name="TaxRptgDateIsActive" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Date taxe"
+					sap:quickinfo="Date de déclaration de la taxe active dans les pièces"/><NavigationProperty Name="to_Address" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_7B700245FD6FF2555A237CF798415E91"
+					FromRole="FromRole_assoc_7B700245FD6FF2555A237CF798415E91" ToRole="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/><NavigationProperty Name="to_Country" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"
+					FromRole="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" ToRole="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><NavigationProperty Name="to_Currency" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"
+					FromRole="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" ToRole="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><NavigationProperty Name="to_FieldStatusVariant" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_3B874FB44DA3983736B16F212EB774FB"
+					FromRole="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB" ToRole="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><NavigationProperty Name="to_FiscalYearVariant" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_EB26AE0D6C991652829AA26C5CF177EE"
+					FromRole="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE" ToRole="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><NavigationProperty Name="to_Language" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_0D98BDD738EE6509265AACBB8FF7D168"
+					FromRole="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168" ToRole="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/></EntityType>
+			<EntityType Name="I_CompanyCodeStdVHType" sap:label="Société" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CompanyCode"/></Key><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName"
+					sap:label="Société"/><Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Nom de la société"
+					sap:quickinfo="Code société ou nom de la société"/></EntityType>
+			<EntityType Name="I_ControllingAreaStdVHType" sap:label="Périmètre analytique" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="ControllingArea"/></Key><Property Name="ControllingArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="ControllingAreaName" sap:label="Périmètre analytique"/><Property Name="ControllingAreaName" Type="Edm.String" MaxLength="25" sap:label="Nom du périmètre analytique"/></EntityType>
+			<EntityType Name="I_CountryType" sap:label="Pays" sap:content-version="1">
+				<Key><PropertyRef Name="Country"/></Key><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="Country_Text"
+					sap:label="Clé de pays"/><Property Name="Country_Text" Type="Edm.String" MaxLength="50" sap:label="Désignation longue"
+					sap:quickinfo="Désignation du pays (50 positions au maximum)" sap:creatable="false" sap:updatable="false"/><Property Name="CountryThreeLetterISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO 3 caract."
+					sap:quickinfo="Code de pays ISO à trois caractères"/><Property Name="CountryThreeDigitISOCode" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="C. ISO 3 pos."
+					sap:quickinfo="Code ISO numérique à 3 positions du pays"/><Property Name="CountryCurrency" Type="Edm.String" MaxLength="5" sap:label="Devise du pays" sap:semantics="currency-code"/><Property Name="IndexBasedCurrency" Type="Edm.String" MaxLength="5" sap:label="Devise indexée" sap:quickinfo="Code de devise indéxée"
+					sap:semantics="currency-code"/><Property Name="HardCurrency" Type="Edm.String" MaxLength="5" sap:label="Devise forte" sap:quickinfo="Code de la devise forte"
+					sap:semantics="currency-code"/><Property Name="TaxCalculationProcedure" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Schéma"
+					sap:quickinfo="Schéma (détermination du prix, messages, détermin. cptes...)"/><Property Name="CountryAlternativeCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé alternative"
+					sap:quickinfo="Clé pays alternative"/></EntityType>
+			<EntityType Name="I_CreditControlAreaStdVHType" sap:label="Domaine de contrôle des crédits" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CreditControlArea"/></Key><Property Name="CreditControlArea" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="CreditControlArea_Text" sap:label="Domaine ctrl crédits" sap:quickinfo="Domaine de contrôle des crédits"/><Property Name="CreditControlArea_Text" Type="Edm.String" MaxLength="35" sap:label="Désignation"
+					sap:quickinfo="Désignation du domaine de contrôle des crédits" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_CurrencyType" sap:label="Devise" sap:content-version="1">
+				<Key><PropertyRef Name="Currency"/></Key><Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="Currency_Text" sap:label="Devise"
+					sap:quickinfo="Clé de devise" sap:semantics="currency-code"/><Property Name="Currency_Text" Type="Edm.String" MaxLength="40" sap:label="Texte descriptif" sap:creatable="false" sap:updatable="false"/><Property Name="Decimals" Type="Edm.Byte" sap:label="Décimales" sap:quickinfo="Nombre de décimales"/><Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Code ISO"
+					sap:quickinfo="Devise en code ISO"/><Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé alternative"
+					sap:quickinfo="Clé alternative pour devises"/><Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primaire"
+					sap:quickinfo="Code de devise SAP primaire pour code ISO"/></EntityType>
+			<EntityType Name="I_FieldStatusVariantType" sap:label="Variante de statut de zone" sap:content-version="1">
+				<Key><PropertyRef Name="FieldStatusVariant"/></Key><Property Name="FieldStatusVariant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:text="FieldStatusVariant_Text" sap:label="Var. statut zone" sap:quickinfo="Variante de statut de zone"/><Property Name="FieldStatusVariant_Text" Type="Edm.String" MaxLength="25" sap:label="Nom var. statut zone"
+					sap:quickinfo="Nom d'une variante de statut de zone" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="I_FiscalYearVariantType" sap:label="Version d'exercice" sap:content-version="1">
+				<Key><PropertyRef Name="FiscalYearVariant"/></Key><Property Name="FiscalYearVariant" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:text="FiscalYearVariant_Text" sap:label="Version d'exercice"/><Property Name="FiscalYearVariant_Text" Type="Edm.String" MaxLength="30" sap:label="Description"
+					sap:quickinfo="Description des variantes d'exercices comptables" sap:creatable="false" sap:updatable="false"/><Property Name="FiscalPeriodIsEqualMonth" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Pér. cpt. égale mois"
+					sap:quickinfo="Code : la période comptable est égale au mois civil"/><Property Name="IsYearDependent" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Dépendant exercice"
+					sap:quickinfo="Code : version exercice cptable dépendante de l'exercice"/><Property Name="PostingPeriodsNumberVal" Type="Edm.String" MaxLength="3" sap:display-format="NonNegative" sap:label="Période cptable"
+					sap:quickinfo="Nombre de périodes comptables"/><Property Name="NumberOfSpecialPeriods" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Nbre périodes spéc."
+					sap:quickinfo="Nombre périodes spéciales"/></EntityType>
+			<EntityType Name="I_LanguageType" sap:label="Langue" sap:content-version="1">
+				<Key><PropertyRef Name="Language"/></Key><Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Language_Text" sap:label="Code langue"/><Property Name="Language_Text" Type="Edm.String" MaxLength="16" sap:label="Désignation" sap:quickinfo="Désignation de la langue"
+					sap:creatable="false" sap:updatable="false"/><Property Name="LanguageISOCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Langue (ISO 639)"
+					sap:quickinfo="Code langue SAP à deux caractères"/></EntityType>
+			<EntityType Name="I_SupplierType" sap:label="Fournisseur" sap:content-version="1">
+				<Key><PropertyRef Name="Supplier"/></Key><Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="SupplierName"
+					sap:label="Fournisseur" sap:quickinfo="Numéro de compte fournisseur"/><Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Groupe de comptes"
+					sap:quickinfo="Groupe de comptes fournisseurs"/><Property Name="SupplierName" Type="Edm.String" MaxLength="80" sap:label="Nom du fournisseur"/><Property Name="SupplierFullName" Type="Edm.String" MaxLength="220" sap:display-format="UpperCase" sap:label="Nom du fournisseur"
+					sap:quickinfo="Nom complet du fournisseur"/><Property Name="IsBusinessPurposeCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Code object. atteint"
+					sap:quickinfo="Code d'objectif commercial atteint"/><Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Créé par"
+					sap:quickinfo="Nom de l'utilisateur qui a créé l'objet"/><Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Créé le"
+					sap:quickinfo="Date de création de l'enregistrement"/><Property Name="IsOneTimeAccount" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Compte CPD"
+					sap:quickinfo="Code : Ce compte est-il un compte CPD ?"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Autorisation"
+					sap:quickinfo="Groupe d'autorisations"/><Property Name="VATRegistration" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Nº ident. TVA sur CA"
+					sap:quickinfo="Numéro d'identification de la TVA sur le chiffre d'affaires"/><Property Name="AccountIsBlockedForPosting" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Blocage compt."
+					sap:quickinfo="Blocage central de comptab."/><Property Name="TaxJurisdiction" Type="Edm.String" MaxLength="15" sap:display-format="UpperCase" sap:label="Juridiction fiscale"/><Property Name="SupplierCorporateGroup" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Clé du groupe"/><Property Name="Customer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Client"
+					sap:quickinfo="Numéro de client"/><Property Name="Industry" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Branche" sap:quickinfo="Code branche"/><Property Name="TaxNumber1" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="N° SIRET"/><Property Name="TaxNumber2" Type="Edm.String" MaxLength="11" sap:display-format="UpperCase" sap:label="N° SIREN"/><Property Name="TaxNumber3" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Numéro TVA 3"/><Property Name="TaxNumber4" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Numéro TVA 4"/><Property Name="TaxNumber5" Type="Edm.String" MaxLength="60" sap:display-format="UpperCase" sap:label="Nº identif. fisc. 5"
+					sap:quickinfo="Numéro d'identification fiscale 5"/><Property Name="PostingIsBlocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Blocage compt."
+					sap:quickinfo="Blocage central de comptab."/><Property Name="PurchasingIsBlocked" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Achats bloqués"
+					sap:quickinfo="Achats bloqués au niveau central"/><Property Name="InternationalLocationNumber1" Type="Edm.String" MaxLength="7" sap:display-format="NonNegative"
+					sap:label="Nº site internat. 1" sap:quickinfo="Numéro de site international (partie 1)"/><Property Name="InternationalLocationNumber2" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative"
+					sap:label="Nº int. exploitat. 2" sap:quickinfo="Code lieu-fonction international (partie 2)"/><Property Name="InternationalLocationNumber3" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative"
+					sap:label="Chiffre de contrôle" sap:quickinfo="Chiffre de contrôle du code lieu-fonction international"/><Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adresse"/><Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Région"
+					sap:quickinfo="Région (Etat, land, province, comté, etc.)"/><Property Name="OrganizationBPName1" Type="Edm.String" MaxLength="35" sap:label="Nom" sap:quickinfo="Nom 1"/><Property Name="OrganizationBPName2" Type="Edm.String" MaxLength="35" sap:label="Nom 2"/><Property Name="CityName" Type="Edm.String" MaxLength="35" sap:label="Ville"/><Property Name="PostalCode" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Code postal"/><Property Name="StreetName" Type="Edm.String" MaxLength="35" sap:label="Rue" sap:quickinfo="Rue et numéro de rue"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Pays" sap:quickinfo="Clé de pays"/><Property Name="ConcatenatedInternationalLocNo" Type="Edm.String" MaxLength="20" sap:label="Code lieu-fnctn int."
+					sap:quickinfo="Code lieu-fonction international concaténé"/><Property Name="SupplierProcurementBlock" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Fonction de blocage"
+					sap:quickinfo="Fonction qui sera bloquée"/><Property Name="SuplrQualityManagementSystem" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Système QM réel"
+					sap:quickinfo="Système QM du fournisseur"/><Property Name="SuplrQltyInProcmtCertfnValidTo" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Syst.QM valide jusq."
+					sap:quickinfo="Date de validité de la certification"/><Property Name="SupplierLanguage" Type="Edm.String" MaxLength="2" sap:label="Code langue"/><Property Name="AlternativePayeeAccountNumber" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase"
+					sap:label="Dest. paiemt diverg." sap:quickinfo="N° de compte destinataire paiement divergent"/><Property Name="PhoneNumber1" Type="Edm.String" MaxLength="16" sap:label="Téléphone 1" sap:quickinfo="1er numéro de téléphone"/><Property Name="FaxNumber" Type="Edm.String" MaxLength="31" sap:label="Numéro de télécopie"/><Property Name="IsNaturalPerson" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Personne physique"/><Property Name="TaxNumberResponsible" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="Nº ID fiscale"
+					sap:quickinfo="Nº ID fiscale auprès du bureau de perception compétent"/><Property Name="UK_ContractorBusinessType" Type="Edm.String" MaxLength="12" sap:label="Type transact."
+					sap:quickinfo="Type de transaction du sous-traitant"/><Property Name="UK_PartnerTradingName" Type="Edm.String" MaxLength="30" sap:label="Nom cial partenaire"
+					sap:quickinfo="Nom commercial du partenaire"/><Property Name="UK_PartnerTaxReference" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="UTR partenaire"
+					sap:quickinfo="Référence contribuable unique (UTR) pour partenaire"/><Property Name="UK_VerificationStatus" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Statut de vérificat."/><Property Name="UK_VerificationNumber" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Nº de vérification"
+					sap:quickinfo="Numéro de vérification"/><Property Name="UK_CompanyRegistrationNumber" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase"
+					sap:label="Nº enreg.int.entrep." sap:quickinfo="Numéro d'enregistrement interne d'entreprises"/><Property Name="UK_VerifiedTaxStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Statut fiscal"
+					sap:quickinfo="Statut fiscal du sous-traitant certifié"/><Property Name="FormOfAddress" Type="Edm.String" MaxLength="15" sap:label="Titre de civilité"/><Property Name="ReferenceAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Gr. de cpt. de réf."
+					sap:quickinfo="Gr. de comptes de réf. pr compte CPD (au crédit)"/><Property Name="VATLiability" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Soumis à TVA sur CA"
+					sap:quickinfo="Soumis à la TVA sur CA"/><Property Name="ResponsibleType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Type de taxe"/><Property Name="TaxNumberType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Type n° de taxe"/><Property Name="FiscalAddress" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Adresse fiscale"
+					sap:quickinfo="Numéro de compte de la fiche avec l'adresse fiscale"/><Property Name="BusinessType" Type="Edm.String" MaxLength="30" sap:label="Type d'activité"/><Property Name="BirthDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date de naissance"
+					sap:quickinfo="Date de naissance de la personne soumise à la décl. d'hon."/><Property Name="PaymentIsBlockedForSupplier" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Bloc.paiement"/><Property Name="SortField" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Critère recherche"
+					sap:quickinfo="Zone de tri"/><Property Name="PhoneNumber2" Type="Edm.String" MaxLength="16" sap:label="Téléphone 2" sap:quickinfo="2ème numéro de téléphone"/><Property Name="DeletionIndicator" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Témoin suppr."
+					sap:quickinfo="Témoin de suppression central pour la fiche"/><Property Name="TaxInvoiceRepresentativeName" Type="Edm.String" MaxLength="10" sap:label="Nom représ." sap:quickinfo="Nom du représentant"/><Property Name="IndustryType" Type="Edm.String" MaxLength="30" sap:label="Type d'industrie"/></EntityType>
+			<EntityType Name="I_SupplierCompanyType" sap:label="Société fournisseur" sap:content-version="1">
+				<Key><PropertyRef Name="Supplier"/><PropertyRef Name="CompanyCode"/></Key><Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Fournisseur"
+					sap:quickinfo="Numéro de compte fournisseur" sap:value-list="standard"/><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Société"
+					sap:value-list="standard"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Autorisation"
+					sap:quickinfo="Groupe d'autorisations"/><Property Name="PaymentBlockingReason" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Blocage paiement"
+					sap:quickinfo="Clé de blocage pour paiement"/><Property Name="SupplierIsBlockedForPosting" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Blocage compt. sté"
+					sap:quickinfo="Blocage de comptabilisation pour la société"/><Property Name="IsBusinessPurposeCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Code object. atteint"
+					sap:quickinfo="Code d'objectif commercial atteint"/><Property Name="AccountingClerk" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Abrév.gestionn."
+					sap:quickinfo="Abréviation du gestionnaire comptable"/><Property Name="AccountingClerkFaxNumber" Type="Edm.String" MaxLength="31" sap:label="Télécopie gestionn."
+					sap:quickinfo="N° télécopie du gestionnaire chez le partenaire commercial"/><Property Name="AccountingClerkPhoneNumber" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Téléphone gestionn."
+					sap:quickinfo="Nº de téléphone du gestionnaire chez le partenaire"/><Property Name="AccountingClerkInternetAddress" Type="Edm.String" MaxLength="130" sap:label="Adresse internet cpt"
+					sap:quickinfo="Adresse internet du comptable auprès du partenaire commerc."/><Property Name="SupplierClerk" Type="Edm.String" MaxLength="15" sap:label="Respons. chez fourn."
+					sap:quickinfo="Responsable chez le fournisseur"/><Property Name="SupplierClerkURL" Type="Edm.String" MaxLength="130" sap:label="Adresse internet cpt"
+					sap:quickinfo="Adresse internet du comptable auprès du partenaire commerc."/><Property Name="PaymentMethodsList" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Modes de paiement"
+					sap:quickinfo="Liste des modes de paiement à prendre en compte"/><Property Name="PaymentTerms" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Cond. paiement"
+					sap:quickinfo="Clé conditions de paiement"/><Property Name="ClearCustomerSupplier" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Compens. avec client"
+					sap:quickinfo="Code : Compensation entre client et fournisseur ?"/><Property Name="IsToBeLocallyProcessed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Trait. décentralisé"
+					sap:quickinfo="Code : Traitement décentralisé ?"/><Property Name="ItemIsToBePaidSeparately" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Pmt individuel"
+					sap:quickinfo="Code : Régler tous les postes séparément ?"/><Property Name="PaymentIsToBeSentByEDI" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Avis pmt par EDI"
+					sap:quickinfo="Code : envoyer avis de paiement par EDI"/><Property Name="HouseBank" Type="Edm.String" MaxLength="5" sap:display-format="UpperCase" sap:label="Banque de la société"
+					sap:quickinfo="Clé synthétique pour une banque société"/><Property Name="CheckPaidDurationInDays" Type="Edm.Decimal" Precision="3" Scale="0" sap:label="Dur.jusqu'à encaismt"
+					sap:quickinfo="Durée prévue jusqu'à l'encaissement du chèque"/><Property Name="BillOfExchLmtAmtInCoCodeCrcy" Type="Edm.Decimal" Precision="14" Scale="3" sap:label="Plafond effets"
+					sap:quickinfo="Plafond pour les effets (en devise interne)"/><Property Name="SupplierClerkIDBySupplier" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Cpte ch. fournisseur"
+					sap:quickinfo="Notre numéro de compte chez le fournisseur"/><Property Name="IsDoubleInvoice" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Ctrl.facture double"
+					sap:quickinfo="Remarque de contrôle pour avoirs ou factures en double"/><Property Name="CustomerSupplierClearingIsUsed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Compens. avec client"
+					sap:quickinfo="Code : Compensation entre client et fournisseur ?"/><Property Name="ReconciliationAccount" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Compte collectif"
+					sap:quickinfo="Compte collectif en comptabilité générale"/><Property Name="InterestCalculationCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code intérêts"/><Property Name="InterestCalculationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Dern. jr.référ."
+					sap:quickinfo="Jour de référence du dernier calcul d'intérêts"/><Property Name="IntrstCalcFrequencyInMonths" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:label="Périod.intérêts"
+					sap:quickinfo="Périodicité calc. intérêts en mois"/><Property Name="SupplierHeadOffice" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Centrale"
+					sap:quickinfo="No de compte de la centrale"/><Property Name="AlternativePayee" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Dest. paiemt diverg."
+					sap:quickinfo="N° de compte destinataire paiement divergent"/><Property Name="LayoutSortingRule" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Clé de tri"
+					sap:quickinfo="Clé de tri selon les numéros d'affectation"/><Property Name="APARToleranceGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Classe tolérances"
+					sap:quickinfo="Classe de tolérance pour le partenaire/compte général"/><Property Name="SupplierCertificationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date certification"
+					sap:quickinfo="Date de la certification"/><Property Name="SupplierAccountNote" Type="Edm.String" MaxLength="30" sap:label="Note de compte" sap:quickinfo="Note"/><Property Name="WithholdingTaxCountry" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Pays décl. d'hon."
+					sap:quickinfo="Code pays de la déclaration d'honoraires"/><Property Name="DeletionIndicator" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Témoin suppr.société"
+					sap:quickinfo="Témoin de suppression pour la fiche (niveau société)"/><Property Name="CashPlanningGroup" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Gpe prévis.trésor."
+					sap:quickinfo="Groupe de prévisions de trésorerie"/><Property Name="IsToBeCheckedForDuplicates" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Ctrl.facture double"
+					sap:quickinfo="Remarque de contrôle pour avoirs ou factures en double"/><Property Name="Paymentmethodsupplement" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Suppl.mode pmt"
+					sap:quickinfo="Supplém. mode de paiement"/><Property Name="BankDetailsID" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="ID coord. bancaires"
+					sap:quickinfo="ID coordonnées bancaires"/><Property Name="ToleranceGroupinInvoiceVerif" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase"
+					sap:label="Classe de tolérances" sap:quickinfo="Classe de tolérances dans le contrôle de factures"/></EntityType>
+			<EntityType Name="I_Supplier_VHType" sap:label="Aide à la saisie pour fournisseur" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Supplier"/></Key><Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="SupplierName"
+					sap:label="Fournisseur" sap:quickinfo="Numéro de compte fournisseur"/><Property Name="SupplierName" Type="Edm.String" MaxLength="35" sap:label="Nom" sap:quickinfo="Nom 1"/><Property Name="AuthorizationGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Autorisation"
+					sap:quickinfo="Groupe d'autorisations"/><Property Name="SupplierAccountGroup" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Groupe de comptes"
+					sap:quickinfo="Groupe de comptes fournisseurs"/><Property Name="IsBusinessPurposeCompleted" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Code object. atteint"
+					sap:quickinfo="Code d'objectif commercial atteint"/></EntityType>
+			<EntityType Name="I_WithholdingTaxCodeType" sap:label="Code de déclaration d'honoraires" sap:content-version="1">
+				<Key><PropertyRef Name="Country"/><PropertyRef Name="WithholdingTaxCode"/></Key><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:text="to_Country/Country_Text"
+					sap:label="Clé de pays" sap:value-list="standard"/><Property Name="WithholdingTaxCode" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:label="Cd.déclaration hon." sap:quickinfo="Code déclaration d'honoraires"/><Property Name="OfficialWhldgTaxCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Clé décl.honoraires"
+					sap:quickinfo="Clé décl. hon. officielle"/><Property Name="WhldgTaxCodeName" Type="Edm.String" MaxLength="40" sap:label="Significat."
+					sap:quickinfo="Description sommaire de la clé de déclaration d'honoraires"/><Property Name="WhldgTaxRelevantPercent" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Partie sujette à TVA"
+					sap:quickinfo="Partie sujette à TVA pour déclaration d'honoraires"/><Property Name="WithholdingTaxPercent" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Taux décl.honoraires"
+					sap:quickinfo="Taux déclaration d'honoraires"/><Property Name="Region" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Région"
+					sap:quickinfo="Région (Etat, land, province, comté, etc.)"/><Property Name="ProvincialTaxCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Code fiscal province"/><Property Name="WithholdingTaxIncomeType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Type revenu"
+					sap:quickinfo="Type de revenu"/><Property Name="GermanReunificationTaxPercent" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Taxe de solidarité"
+					sap:quickinfo="Taxe allemande de solidarité pour la décl. d'hon."/><NavigationProperty Name="to_Country" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"
+					FromRole="FromRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795" ToRole="ToRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"/></EntityType>
+			<EntityType Name="ZC_SUPPLIERWITHHOLDINGTAXType" sap:label="Supplier with Holding Tax" sap:content-version="1">
+				<Key><PropertyRef Name="Supplier"/><PropertyRef Name="CompanyCode"/><PropertyRef Name="WithholdingTaxType"/></Key><Property Name="Supplier" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase"
+					sap:filter-restriction="multi-value" sap:text="to_Supplier/SupplierName" sap:label="Fournisseur"
+					sap:quickinfo="Numéro de compte fournisseur" sap:value-list="standard"/><Property Name="CompanyCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase"
+					sap:filter-restriction="single-value" sap:required-in-filter="true" sap:text="to_CompanyCode/CompanyCodeName" sap:label="Société"
+					sap:value-list="standard"/><Property Name="WithholdingTaxType" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase"
+					sap:label="Type d'honoraires" sap:quickinfo="Code pour type déclaration honoraires"/><Property Name="Country" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Pays" sap:quickinfo="Clé de pays"/><Property Name="WithholdingTaxNumber" Type="Edm.String" MaxLength="16" sap:display-format="UpperCase" sap:label="Nº id.honor."
+					sap:quickinfo="Numéro d'identification déclaration d'honoraires"/><Property Name="WithholdingTaxCode" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Code DHonor."
+					sap:quickinfo="Code déclaration d'honoraires" sap:value-list="standard"/><Property Name="IsWithholdingTaxSubject" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Assuj.à DH"
+					sap:quickinfo="Code : assujetti à la déclaration d'honoraires ?"/><Property Name="RecipientType" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Classe décl. honor."
+					sap:quickinfo="Classe de décl. d'honoraires d'un fournisseur"/><Property Name="WithholdingTaxCertificate" Type="Edm.String" MaxLength="25" sap:display-format="UpperCase" sap:label="Nº exonération"
+					sap:quickinfo="Numéro du certificat d'exonération"/><Property Name="WithholdingTaxExmptPercent" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Taux d'exonération"/><Property Name="ExemptionDateBegin" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date début exonér."
+					sap:quickinfo="Date début de l'éxonération"/><Property Name="ExemptionDateEnd" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Date fin exonération"
+					sap:quickinfo="Date de fin de l'exonération"/><Property Name="ExemptionReason" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Motif d'exonération"/><NavigationProperty Name="to_CompanyCode" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_8526DC8687727AACEB9FC15AAC4C1811"
+					FromRole="FromRole_assoc_8526DC8687727AACEB9FC15AAC4C1811" ToRole="ToRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"/><NavigationProperty Name="to_Supplier" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_FFEA3D154DDE3C1CE4D707BEE206547F"
+					FromRole="FromRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F" ToRole="ToRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"/><NavigationProperty Name="to_SupplierCompany" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_EBDB6633810E0ED40DDAA9D3A0582815"
+					FromRole="FromRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815" ToRole="ToRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815"/><NavigationProperty Name="to_WithholdingTaxCode" Relationship="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_5387719774228046538F8F93CD9B3581"
+					FromRole="FromRole_assoc_5387719774228046538F8F93CD9B3581" ToRole="ToRole_assoc_5387719774228046538F8F93CD9B3581"/></EntityType>
+			<Association Name="assoc_B5950F2FCE6CACE6E5D4355E5ED5D795" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_WithholdingTaxCodeType" Multiplicity="1" Role="FromRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CountryType" Multiplicity="0..1" Role="ToRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"><PropertyRef Name="Country"/></Principal>
+					<Dependent Role="FromRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"><PropertyRef Name="Country"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CountryType" Multiplicity="0..1" Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"><PropertyRef Name="Country"/></Principal>
+					<Dependent Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"><PropertyRef Name="Country"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CurrencyType" Multiplicity="0..1" Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"><PropertyRef Name="Currency"/></Principal>
+					<Dependent Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"><PropertyRef Name="Currency"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_3B874FB44DA3983736B16F212EB774FB" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_FieldStatusVariantType" Multiplicity="0..1" Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"><PropertyRef Name="FieldStatusVariant"/></Principal>
+					<Dependent Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"><PropertyRef Name="FieldStatusVariant"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_EB26AE0D6C991652829AA26C5CF177EE" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_FiscalYearVariantType" Multiplicity="0..1" Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"><PropertyRef Name="FiscalYearVariant"/></Principal>
+					<Dependent Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"><PropertyRef Name="FiscalYearVariant"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_0D98BDD738EE6509265AACBB8FF7D168" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_LanguageType" Multiplicity="0..1" Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"><PropertyRef Name="Language"/></Principal>
+					<Dependent Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"><PropertyRef Name="Language"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_7B700245FD6FF2555A237CF798415E91" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_AddressType" Multiplicity="0..1" Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"><PropertyRef Name="AddressID"/></Principal>
+					<Dependent Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"><PropertyRef Name="AddressID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_8526DC8687727AACEB9FC15AAC4C1811" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType" Multiplicity="1"
+				Role="FromRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" Multiplicity="1" Role="ToRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"><PropertyRef Name="CompanyCode"/></Principal>
+					<Dependent Role="FromRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"><PropertyRef Name="CompanyCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_FFEA3D154DDE3C1CE4D707BEE206547F" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType" Multiplicity="1"
+				Role="FromRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierType" Multiplicity="1" Role="ToRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"><PropertyRef Name="Supplier"/></Principal>
+					<Dependent Role="FromRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"><PropertyRef Name="Supplier"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_EBDB6633810E0ED40DDAA9D3A0582815" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType" Multiplicity="1"
+				Role="FromRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierCompanyType" Multiplicity="1" Role="ToRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815"/></Association>
+			<Association Name="assoc_5387719774228046538F8F93CD9B3581" sap:content-version="1"><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType" Multiplicity="1"
+				Role="FromRole_assoc_5387719774228046538F8F93CD9B3581"/><End Type="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_WithholdingTaxCodeType" Multiplicity="1" Role="ToRole_assoc_5387719774228046538F8F93CD9B3581"/>
+				<ReferentialConstraint>
+					<Principal Role="ToRole_assoc_5387719774228046538F8F93CD9B3581"><PropertyRef Name="Country"/><PropertyRef Name="WithholdingTaxCode"/></Principal>
+					<Dependent Role="FromRole_assoc_5387719774228046538F8F93CD9B3581"><PropertyRef Name="Country"/><PropertyRef Name="WithholdingTaxCode"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZC_SUPPLIERWITHHOLDINGTAX_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="I_Address" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_AddressType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="I_CompanyCode" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_CompanyCodeStdVH" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeStdVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_ControllingAreaStdVH" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_ControllingAreaStdVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Country" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CountryType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_CreditControlAreaStdVH" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CreditControlAreaStdVHType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_Currency" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CurrencyType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_FieldStatusVariant" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_FieldStatusVariantType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_FiscalYearVariant" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_FiscalYearVariantType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Language" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_LanguageType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_Supplier" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_SupplierCompany" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierCompanyType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="I_Supplier_VH" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_Supplier_VHType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:searchable="true" sap:content-version="1"/><EntitySet Name="I_WithholdingTaxCode" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_WithholdingTaxCodeType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ZC_SUPPLIERWITHHOLDINGTAX" EntityType="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+				<AssociationSet Name="assoc_3B874FB44DA3983736B16F212EB774FB"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_3B874FB44DA3983736B16F212EB774FB" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_3B874FB44DA3983736B16F212EB774FB"/><End EntitySet="I_FieldStatusVariant" Role="ToRole_assoc_3B874FB44DA3983736B16F212EB774FB"/></AssociationSet>
+				<AssociationSet Name="assoc_0D98BDD738EE6509265AACBB8FF7D168"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_0D98BDD738EE6509265AACBB8FF7D168" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/><End EntitySet="I_Language" Role="ToRole_assoc_0D98BDD738EE6509265AACBB8FF7D168"/></AssociationSet>
+				<AssociationSet Name="assoc_8526DC8687727AACEB9FC15AAC4C1811"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_8526DC8687727AACEB9FC15AAC4C1811" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_SUPPLIERWITHHOLDINGTAX" Role="FromRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"/><End EntitySet="I_CompanyCode" Role="ToRole_assoc_8526DC8687727AACEB9FC15AAC4C1811"/></AssociationSet>
+				<AssociationSet Name="assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_B5950F2FCE6CACE6E5D4355E5ED5D795" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_WithholdingTaxCode" Role="FromRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"/><End EntitySet="I_Country" Role="ToRole_assoc_B5950F2FCE6CACE6E5D4355E5ED5D795"/></AssociationSet>
+				<AssociationSet Name="assoc_7B700245FD6FF2555A237CF798415E91"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_7B700245FD6FF2555A237CF798415E91" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_7B700245FD6FF2555A237CF798415E91"/><End EntitySet="I_Address" Role="ToRole_assoc_7B700245FD6FF2555A237CF798415E91"/></AssociationSet>
+				<AssociationSet Name="assoc_FFEA3D154DDE3C1CE4D707BEE206547F"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_FFEA3D154DDE3C1CE4D707BEE206547F" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_SUPPLIERWITHHOLDINGTAX" Role="FromRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"/><End EntitySet="I_Supplier" Role="ToRole_assoc_FFEA3D154DDE3C1CE4D707BEE206547F"/></AssociationSet>
+				<AssociationSet Name="assoc_EBDB6633810E0ED40DDAA9D3A0582815"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_EBDB6633810E0ED40DDAA9D3A0582815" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_SUPPLIERWITHHOLDINGTAX" Role="FromRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815"/><End EntitySet="I_SupplierCompany" Role="ToRole_assoc_EBDB6633810E0ED40DDAA9D3A0582815"/></AssociationSet>
+				<AssociationSet Name="assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/><End EntitySet="I_Currency" Role="ToRole_assoc_84C2AC7E30B88F8268C28AF6C1BB7BB1"/></AssociationSet>
+				<AssociationSet Name="assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/><End EntitySet="I_Country" Role="ToRole_assoc_FF0B440153BEF5F06AA49E8DBBFFFD7B"/></AssociationSet>
+				<AssociationSet Name="assoc_EB26AE0D6C991652829AA26C5CF177EE"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_EB26AE0D6C991652829AA26C5CF177EE" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="I_CompanyCode" Role="FromRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/><End EntitySet="I_FiscalYearVariant" Role="ToRole_assoc_EB26AE0D6C991652829AA26C5CF177EE"/></AssociationSet>
+				<AssociationSet Name="assoc_5387719774228046538F8F93CD9B3581"
+					Association="ZC_SUPPLIERWITHHOLDINGTAX_CDS.assoc_5387719774228046538F8F93CD9B3581" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="ZC_SUPPLIERWITHHOLDINGTAX" Role="FromRole_assoc_5387719774228046538F8F93CD9B3581"/><End EntitySet="I_WithholdingTaxCode" Role="ToRole_assoc_5387719774228046538F8F93CD9B3581"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/Country">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Country"/><PropertyValue Property="CollectionPath" String="I_Country"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Country"/><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/Currency">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Currency"/><PropertyValue Property="CollectionPath" String="I_Currency"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Currency"/><PropertyValue Property="ValueListProperty" String="Currency"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Currency_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/Language">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Language"/><PropertyValue Property="CollectionPath" String="I_Language"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Language"/><PropertyValue Property="ValueListProperty" String="Language"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Language_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/FiscalYearVariant">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Fiscal Year Variant"/><PropertyValue Property="CollectionPath" String="I_FiscalYearVariant"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FiscalYearVariant"/><PropertyValue Property="ValueListProperty" String="FiscalYearVariant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="FiscalYearVariant_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/CreditControlArea">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Credit Control Area"/><PropertyValue Property="CollectionPath" String="I_CreditControlAreaStdVH"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CreditControlArea"/><PropertyValue Property="ValueListProperty" String="CreditControlArea"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/ControllingArea">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Controlling Area"/><PropertyValue Property="CollectionPath" String="I_ControllingAreaStdVH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="ControllingArea"/><PropertyValue Property="ValueListProperty" String="ControllingArea"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingAreaName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_CompanyCodeType/FieldStatusVariant">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Field Status Variant"/><PropertyValue Property="CollectionPath" String="I_FieldStatusVariant"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="FieldStatusVariant"/><PropertyValue Property="ValueListProperty" String="FieldStatusVariant"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="FieldStatusVariant_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierCompanyType/Supplier">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Value Help for Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier_VH"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierAccountGroup"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="IsBusinessPurposeCompleted"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_SupplierCompanyType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCodeStdVH"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.I_WithholdingTaxCodeType/Country">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Country"/><PropertyValue Property="CollectionPath" String="I_Country"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Country"/><PropertyValue Property="ValueListProperty" String="Country"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="Country_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType/Supplier">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Supplier"/><PropertyValue Property="CollectionPath" String="I_Supplier"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Supplier"/><PropertyValue Property="ValueListProperty" String="Supplier"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="SupplierName"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAXType/CompanyCode">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Company Code"/><PropertyValue Property="CollectionPath" String="I_CompanyCode"/><PropertyValue Property="SearchSupported" Bool="true"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/><PropertyValue Property="ValueListProperty" String="CompanyCode"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CompanyCodeName"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CreditControlArea_Text"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="ControllingArea_Text"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZC_SUPPLIERWITHHOLDINGTAX_CDS.ZC_SUPPLIERWITHHOLDINGTAX_CDS_Entities/ZC_SUPPLIERWITHHOLDINGTAX">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record><PropertyValue Property="RequiresFilter" Bool="true"/>
+						<PropertyValue Property="FilterExpressionRestrictions">
+							<Collection>
+								<Record><PropertyValue Property="Property" PropertyPath="Supplier"/><PropertyValue Property="AllowedExpressions" String="MultiValue"/></Record>
+								<Record><PropertyValue Property="Property" PropertyPath="CompanyCode"/><PropertyValue Property="AllowedExpressions" String="SingleValue"/></Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="RequiredProperties">
+							<Collection>
+								<PropertyPath>CompanyCode</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZC_SUPPLIERWITHHOLDINGTAX_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZC_SUPPLIERWITHHOLDINGTAX_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
